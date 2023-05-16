@@ -33,24 +33,24 @@ IDE: Intellij
 1. 서비스계정 생성 (해당 서비스 계정으로 webapp 이 실행되어야 한다)
 2. SPN 등록(Domain Controller에서 수행)
   - 서비스 계정을 SPN 으로 등록해야 한다.
-  - "setspn -s http/\<domain\> \<username\>"
+  - `"setspn -s http/<domain> <username>"`
 3. Keytab 생성(Domain Controller에서 수행)
   - 생성 명령어의 각각의 옵션이 중요하며 오류가 가장 잘 발생하는 부분
-  - "ktpass /out \<keytab-file-name\> /princ \<SPN\>/\<FQDN\>@\<REALM\> /mapuser \<username\> /pass \<password\> /ptype KRB5_NT_PRINCIPAL /crypto all  /kvno 0"
+  - `"ktpass /out <keytab-file-name> /princ <SPN>/<FQDN>@<REALM> /mapuser \<username\> /pass <password> /ptype KRB5_NT_PRINCIPAL /crypto all  /kvno 0"`
 
 ### 사전 설정에 대한 테스트
 실제 서비스 계정으로 kerberos 티켓이 정상 발급되는지 확인한다.
 
 정확한 확인 없이 코드 작성부터 해버리면 어디서 오류가 나는지 알기 어렵다.
 
-"-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"  두 옵션을 주면 디버깅을 할수 있다.(레퍼런스 자료들에 이 옵션이 있는지도 잘 안나온다)
+kinit 명령어에 `"-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"`  두 옵션을 주면 디버깅을 할수 있다.(레퍼런스 자료들에 이 옵션이 있는지도 잘 안나온다)
 
 1. keytab을 사용하지 않고 티켓 발급 테스트(계정 패스워드 필요)
-  - kinit.exe "-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"
-  - kinit.exe "-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true" HTTP/test.security.test.com@SECURITY.TEST.COM <-(SPN)
+  - `kinit.exe "-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"`
+  - `kinit.exe "-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true" HTTP/test.security.test.com@SECURITY.TEST.COM <-(SPN)`
 2. keytab을 사용하여 티켓 발급 테스트(패스워드 불필요)
-  - kinit.exe "-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"  -k -t "c:\test\test.keytab" 
-  - kinit.exe "-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"  -k -t "c:\test\test.keytab" HTTP/test.security.test.com@SECURITY.TEST.COM <-(SPN)
+  - `kinit.exe "-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"  -k -t "c:\test\test.keytab"`
+  - `kinit.exe "-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"  -k -t "c:\test\test.keytab" HTTP/test.security.test.com@SECURITY.TEST.COM <-(SPN)`
 
 
 
