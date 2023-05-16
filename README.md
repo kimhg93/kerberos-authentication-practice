@@ -1,5 +1,5 @@
 # kerberos-authentication-practice
-Windows 로그인 유저의 SSO 처리를 위한 Kerberos 인증 예제
+Windows 로그인 유저의 SSO 처리를 위한 spring security kerberos 인증 예제
 
 kerberos 인증을 구현 하는 과정에서 Github도 어차피 검색 안되지만 국내 레퍼런스가 거의 전무하여 기록을 남김.
 
