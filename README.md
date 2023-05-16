@@ -1,9 +1,9 @@
 # kerberos-authentication-practice
 Windows 로그인 유저의 SSO 처리를 위한 Kerberos 인증 예제
 
-kerberos 인증을 구현 하는 과정에서 국내 레퍼런스가 거의 전무하여 기록을 남김
+kerberos 인증을 구현 하는 과정에서 국내 레퍼런스가 거의 전무하여 기록을 남김.
 
-AD나 도메인 컨트롤러에 대한 지식이 풍부하지 않은채로 작성했으니 참고 바람
+공식문서의 설명이 거의 없고, 샘플코드만 존재한다. 외국 레퍼런스도 많지 않다.
 
 ### kerberos 인증을 적용하면?
 Windows 인트라넷 환경에서 웹 어플리케이션 접속 시 별도의 로그인 절차를 필요로 하지 않는다. 
@@ -16,13 +16,17 @@ Kerberos 인증이 자동으로 수행되려면 클라이언트가 동일한 도
 ### 개발 환경
 Java: 11.0.2
 
-Build: Gradle 6.8.3
+Build: Gradle 6.9.4
 
 Spring Boot: 2.7.11
 
+IDE: Intellij 
+
 
 ### 사전 설정(중요!!)
-가장 중요한 부분이다. 인증 구현 시 실제 코드의 양은 많지 않으며, 인증 과정에 대한 이해와 사전 설정이 가장 중요.
+가장 중요한 부분이다. 
+
+인증 구현 시 실제 코드의 양은 많지 않으며, 인증 과정에 대한 이해와 사전 설정이 가장 중요.
 
 보통 개발자가 직접 컨트롤 할 수 없는 영역인데다, 사전 설정의 문제로 인증이 실패한다면 디버깅이 상당히 어려움
 
@@ -39,7 +43,7 @@ Spring Boot: 2.7.11
 
 정확한 확인 없이 코드 작성부터 해버리면 어디서 오류가 나는지 알기 어렵다.
 
-"-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"  두 옵션을 주면 디버깅을 할수 있다.(이 옵션이 있는지도 잘 안나온다)
+"-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"  두 옵션을 주면 디버깅을 할수 있다.(레퍼런스 자료들에 이 옵션이 있는지도 잘 안나온다)
 
 1. keytab을 사용하지 않고 티켓 발급 테스트(계정 패스워드 필요)
   - kinit.exe "-J-Dsun.security.spnego.debug=true" "-J-Dsun.security.krb5.debug=true"
