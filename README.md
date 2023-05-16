@@ -17,9 +17,9 @@ Spring Boot: 2.7.11
 
 
 ### 사전 설정
-가장 중요한 부분이다. 인증 구현 시 실제 코드의 양은 많지 않으며, 인증 과정에 대한 이해와 사전 설정이 가장 중요하다.
+가장 중요한 부분이다. 인증 구현 시 실제 코드의 양은 많지 않으며, 인증 과정에 대한 이해와 사전 설정이 가장 중요.
 
-보통 개발자가 직접 컨트롤 할 수 없는 영역인데다, 사전 설정의 문제로 인증이 실패한다면 디버깅이 상당히 어렵기 때문
+보통 개발자가 직접 컨트롤 할 수 없는 영역인데다, 사전 설정의 문제로 인증이 실패한다면 디버깅이 상당히 어렵움
 
 1. 서비스계정 생성 (해당 서비스 계정으로 webapp 이 실행되어야 한다)
 2. SPN 등록(Domain Controller에서 수행)
@@ -43,7 +43,9 @@ Spring Boot: 2.7.11
 
 ### 참고링크
 https://docs.spring.io/spring-security-kerberos/docs/current/reference/html/index.html
+
 https://tomcat.apache.org/tomcat-9.0-doc/windows-auth-howto.html
+
 http://code-addict.pl/spring-security-kerberos/
 
 
