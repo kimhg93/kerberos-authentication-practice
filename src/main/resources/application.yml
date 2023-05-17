@@ -1,0 +1,17 @@
+app:
+  service-principal: HTTP/test.kerberos.security.com@KERBEROS.SECURITY.COM
+  keytab-location: C:/kerberos.keytab
+
+logging:
+  charset:
+    console: UTF-8
+  level:
+    root: debug
+    jdbc: off
+    jdbc.sqlonly: off
+    jdbc.sqltiming: debug
+    jdbc.audit: off
+    jdbc.resultset: off
+    jdbc.resultsettable: off
+    jdbc.connection: off
+
