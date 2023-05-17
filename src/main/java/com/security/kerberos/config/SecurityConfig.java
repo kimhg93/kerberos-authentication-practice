@@ -72,7 +72,7 @@ public class SecurityConfig {
         return new LoginSuccessHandler();
     }
 
-    @Bean
+    @Bean // AccessDeniedException 처리를 위한 handler
     public CustomAccessDeniedHandler customAccessDeniedHandler(){
         return new CustomAccessDeniedHandler();
     }
@@ -136,17 +136,6 @@ public class SecurityConfig {
     @Bean
     public TestUserDetailsService testUserDetailsService() {
         return new TestUserDetailsService();
-    }
-
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("*");
-        configuration.addAllowedMethod("*");
-        configuration.addAllowedHeader("*");
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
     }
 
 }
