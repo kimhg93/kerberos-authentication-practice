@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>test</title>
+    </head>
+
+    <body class="login-body">
+        <form class="kpmg-login" id="loginForm" th:action="@{/login}" method="post">
+            <div class="login-type">
+                <h4>IID</h4>
+                <input class="btn" id="iid" name="iid">
+                <input type="hidden" name="username" id="username">
+            </div>
+            <div class="login-type">
+                <h4>Password</h4>
+                <input class="btn" name="password" type="password">
+            </div>
+            <div class="login-type">
+                <input class="btn btn-2" href="#none" type="button" onclick="formSubmit()" value="LOGIN">
+            </div>
+        </form>
+
+    </body>
+    <script>
+        const formSubmit = () => {
+            document.getElementById("loginForm").submit();
+        }
+    </script>
+</html>
