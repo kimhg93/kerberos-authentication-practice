@@ -1,9 +1,11 @@
 # kerberos-authentication-practice
 Windows 로그인 유저의 SSO 처리를 위한 spring security kerberos 인증 예제
 
-kerberos 인증을 구현 하는 과정에서 Github도 어차피 검색 안되지만 국내 레퍼런스가 거의 전무하여 기록을 남김.
+kerberos 인증을 구현 하는 과정에 대한 국내 레퍼런스가 거의 전무하여 기록을 남김.
 
 공식문서의 설명이 거의 없고, 샘플코드만 존재한다. 외국 레퍼런스도 많지 않다.
+
+실제로 샘플 코드에서 약간의 수정만 하면 코드작성은 거의 할게 없다. Domain Controller에서 처리하는 내용이 가장 중요
 
 ### kerberos 인증을 적용하면?
 Windows 인트라넷 환경에서 웹 어플리케이션 접속 시 별도의 로그인 절차를 필요로 하지 않는다. 
